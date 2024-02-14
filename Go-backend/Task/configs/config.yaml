@@ -1,0 +1,14 @@
+port: "8000"
+
+db:
+  driver_name: "postgres"
+  host: "postgres"
+  port: "5432"
+  username: "postgres"
+  password: "qwerty"
+  dbname: "postgres"
+  sslmode: "disable"
+
+tables:
+  wallet_table: "wallet"
+  history_table: "history"

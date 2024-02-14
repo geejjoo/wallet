@@ -1,0 +1,31 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+
+version: '3'
+
+# Define services
+services:
+
+  # App Service
+  app:
+    container_name: app
+    # Configuration for building the docker image for the service
+    build: ./Task
+    ports:
+      - "8000:8000" # Forward the exposed port 8000 on the container to port 8080 on the host machine
+    restart: on-failure
+    depends_on:
+      - postgres # This service depends on postgres. Start that first.
+    command: go run cmd/main.go
+    working_dir: /app
+  # Postgres Service
+  postgres:
+    container_name: postgres
+    restart: always
+    image: postgres:latest
+    volumes:
+      - ./Task/schema/000001_init.up.sql:/docker-entrypoint-initdb.d/init.sql
+    env_file:
+      - ./Task/configs/postgres.env
+
+networks:
+  backend:
