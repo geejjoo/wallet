@@ -12,7 +12,7 @@ git clone https://github.com/geejjoo/wallet.git
 
 Navigate to the cloned directory:
 ```bash
-cd wallet
+cd ./Go-backend/Task
 ```
 
 Install dependencies:
