@@ -24,7 +24,7 @@ go mod tidy
 ### Running the Project
 To run the project, execute the following command in your terminal:
 ```bash
-docker compose up --build
+docker compose up
 ```
 By default, the project will be available at `http://localhost:8000`.
 
